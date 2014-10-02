@@ -1,0 +1,6 @@
+sermon-title: Catchy Sermon Title
+sermon-author: Big-Jon Nichols
+sermon-time: 2014-03-15 10:30
+sermon-audio: catchy-sermon-title.mp3
+sermon-desc: |
+  If you wanted to, you could write a bunch of info here describing what the sermon was about. The sermon-audio field will look for the file in the current directory (sermons/sample-series/catchy-sermon-title/)
