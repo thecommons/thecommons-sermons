@@ -21,7 +21,8 @@ class SermonSeries implements JsonSerializable {
     private $webPath;
     private $title;
     private $desc;
-    private $cover;
+    private $cover_bg;
+    private $cover_fg;
     private $video;
 
     private $sermons;
@@ -65,8 +66,13 @@ class SermonSeries implements JsonSerializable {
     }
 
     public
-    function getCover() {
-        return $this->getWebPath() . '/' .$this->cover;
+    function getCoverBG() {
+        return $this->getWebPath() . '/' .$this->cover_bg;
+    }
+
+    public
+    function getCoverBG() {
+        return $this->getWebPath() . '/' .$this->cover_fg;
     }
 
     public
@@ -97,7 +103,8 @@ class SermonSeries implements JsonSerializable {
 
         $this->title = $seriesYml['series-title'];
         $this->desc = $seriesYml['series-desc'];
-        $this->cover = $seriesYml['series-cover'];
+        $this->cover_bg = $seriesYml['series-cover-bg'];
+	$this->cover_fg = $seriesYml['series-cover-fg'];
         $this->video = $seriesYml['series-video'];
     }
 
@@ -122,7 +129,8 @@ class SermonSeries implements JsonSerializable {
             'type' => 'sermon-series',
             'id' => $this->getId(),
             'title' => $this->getTitle(),
-            'cover' => $this->getCover(),
+            'cover_bg' => $this->getCoverBG(),
+	    'cover_fg' => $this->getCoverFG(),
             'video' => $this->getVideo(),
             'sermons' => $this->getSermons(),
         ];
