@@ -209,6 +209,9 @@ class Sermons implements JsonSerializable
         foreach ($this->getSeries() as $series) {
             /** @var Sermon $sermon */
             foreach ($series->getSermons() as $sermon) {
+                if (!$sermon->getAudio()) {
+                    continue;
+                }
                 $xmlStr .= '<item>';
 
                 $xmlStr = $this->addTag($xmlStr, 'guid', $sermon->getAudio());
