@@ -24,6 +24,7 @@ class SermonSeries implements JsonSerializable {
     private $cover_bg;
     private $cover_fg;
     private $video;
+    private $last_sermon_time;
 
     private $sermons;
 
@@ -81,6 +82,12 @@ class SermonSeries implements JsonSerializable {
         return $this->video;
     }
 
+    public
+    function getLastSermonTime()
+    {
+        return $this->last_sermon_time;
+    }
+
     /**
      * @return Sermon
      */
@@ -118,8 +125,12 @@ class SermonSeries implements JsonSerializable {
             }
             $id = basename($sermonDir);
 
-            $this->sermons[] = new Sermon($id, $sermonDir,
+            $sermon = new Sermon($id, $sermonDir,
                 $this->getWebPath());
+            $this->sermons[] = $sermon;
+            if ($sermon->getTime() > $this->last_sermon_time) {
+                $this->last_sermon_time = $sermon->getTime();
+            }
         }
     }
 
@@ -132,6 +143,7 @@ class SermonSeries implements JsonSerializable {
             'cover_bg' => $this->getCoverBG(),
             'cover_fg' => $this->getCoverFG(),
             'video' => $this->getVideo(),
+            'last_sermon_time' => $this->getLastSermonTime(),
             'sermons' => $this->getSermons(),
         ];
     }
