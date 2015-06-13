@@ -68,12 +68,12 @@ class SermonSeries implements JsonSerializable {
 
     public
     function getCoverBG() {
-        return $this->getWebPath() . '/' .$this->cover_bg;
+        return $this->cover_bg ? $this->getWebPath() . '/' .$this->cover_bg : null;
     }
 
     public
     function getCoverFG() {
-        return $this->getWebPath() . '/' .$this->cover_fg;
+        return $this->cover_fg ? $this->getWebPath() . '/' .$this->cover_fg : null;
     }
 
     public
