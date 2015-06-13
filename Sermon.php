@@ -73,7 +73,7 @@ class Sermon implements JsonSerializable
     public
     function getAudio()
     {
-        return $this->getWebPath() . '/' . $this->audio;
+        return $this->audio ? $this->getWebPath() . '/' . $this->audio : null;
     }
 
     public
