@@ -9,12 +9,13 @@
 require_once('Sermons.php');
 
 $format = $_GET['format'] ? $_GET['format'] : 'xml';
+$seriesOnly = isset($_GET['seriesOnly']) ? true : false;
 
 if($format !== 'xml' && $format != 'json') {
     $response = 'Invalid format';
 }
 
-$sermons = new \TheCommons\Sermons\Sermons();
+$sermons = new \TheCommons\Sermons\Sermons($seriesOnly);
 
 if($format === 'json') {
     header('Content-Type: application/json');

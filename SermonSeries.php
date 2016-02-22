@@ -29,13 +29,15 @@ class SermonSeries implements JsonSerializable {
     private $sermons;
 
     public
-    function __construct($id, $path, $prefix) {
+    function __construct($id, $path, $prefix, $seriesOnly=false) {
         $this->id = $id;
         $this->path = $path;
         $this->webPath = $prefix . '/' . $id;
 
         $this->parseSeriesInfo($path);
-        $this->populateSermons();
+        if (!$seriesOnly) {
+            $this->populateSermons();
+        }
     }
 
     public
@@ -94,6 +96,12 @@ class SermonSeries implements JsonSerializable {
     public
     function getSermons() {
         return $this->sermons;
+    }
+
+    public
+    function addSermon($title, $author, $date, $desc) {
+        // TODO
+        return false;
     }
 
     public

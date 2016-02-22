@@ -132,4 +132,9 @@ class Sermon implements JsonSerializable
         ];
     }
 
+    static
+    function createSermon($title, $author, $date, $desc) {
+        return new Sermon();
+    }
+
 } 

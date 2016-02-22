@@ -32,11 +32,12 @@ class Sermons implements JsonSerializable
 
 
     private $series;
+    private $seriesById;
 
     public
-    function __construct() {
+    function __construct($seriesOnly=false) {
         $this->parseConfig();
-        $this->populateSeries();
+        $this->populateSeries($seriesOnly);
     }
 
     public
@@ -132,7 +133,7 @@ class Sermons implements JsonSerializable
     }
 
     public
-    function populateSeries() {
+    function populateSeries($seriesOnly=false) {
         $this->series = [];
 
         // for each directory <series-name> in MEDIA_PATH
@@ -142,8 +143,10 @@ class Sermons implements JsonSerializable
             }
             $id = basename($seriesDir);
 
-            $this->series[] = new SermonSeries($id, $seriesDir,
-                $this->getWebPrefix());
+            $thisSeries = new SermonSeries($id, $seriesDir,
+                $this->getWebPrefix(), $seriesOnly);
+            $this->series[] = $thisSeries;
+            $this->seriesById[$id] = $thisSeries;
         }
     }
 
@@ -153,6 +156,11 @@ class Sermons implements JsonSerializable
     public
     function getSeries() {
         return $this->series;
+    }
+
+    public
+    function getSeriesById($seriesId) {
+        return $this->seriesById[$seriesId];
     }
 
     private
