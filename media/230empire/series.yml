@@ -2,4 +2,8 @@ series-title: The Empire Strikes Back
 series-cover-bg: empire-bg.jpg
 series-cover-fg: empire-fg.png
 series-video:
-series-desc:
+series-desc: |
+This is a sermon description.
+It has multiple lines.
+
+<i>It can have HTML, so be careful!</i>
