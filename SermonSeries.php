@@ -140,6 +140,7 @@ class SermonSeries implements JsonSerializable {
             'type' => 'sermon-series',
             'id' => $this->getId(),
             'title' => $this->getTitle(),
+	    'desc' => $this->getDesc(),
             'cover_bg' => $this->getCoverBG(),
             'cover_fg' => $this->getCoverFG(),
             'video' => $this->getVideo(),
