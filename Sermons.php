@@ -185,7 +185,7 @@ class Sermons implements JsonSerializable
 
         $xmlStr = '<?xml version="1.0" encoding="UTF-8"?>' .
             '<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"' .
-            'version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">' .
+            ' version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">' .
             '<channel>';
 
         $xmlStr = $this->addTag($xmlStr, 'title', $this->getPodcastTitle());
