@@ -202,8 +202,7 @@ class Sermons implements JsonSerializable
         $xmlStr = $this->addTag($xmlStr, 'copyright',
             $this->getPodcastCopyright());
         $xmlStr = $this->addTag($xmlStr, 'itunes:explicit', 'no');
-        $xmlStr = $this->addTag($xmlStr, 'itunes:category',
-            $this->getPodcastCategory());
+        $xmlStr .= '<itunes:category text="'.$this->xmlEncode($this->getPodcastCategory()).'"/>';
 
         /** @var SermonSeries $series */
         foreach ($this->getSeries() as $series) {
