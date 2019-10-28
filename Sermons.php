@@ -23,6 +23,7 @@ class Sermons implements JsonSerializable
     private $podcastTitle;
     private $podcastSubtitle;
     private $podcastAuthor;
+    private $podcastEmail;
     private $podcastImage;
     private $podcastDescription;
     private $podcastLink;
@@ -66,6 +67,12 @@ class Sermons implements JsonSerializable
     function getPodcastAuthor()
     {
         return $this->podcastAuthor;
+    }
+
+    public
+    function getPodcastEmail()
+    {
+        return $this->podcastEmail;
     }
 
     public
@@ -123,6 +130,7 @@ class Sermons implements JsonSerializable
         $this->podcastTitle = $yml['podcast-title'];
         $this->podcastSubtitle = $yml['podcast-subtitle'];
         $this->podcastAuthor = $yml['podcast-author'];
+        $this->podcastEmail = $yml['podcast-email'];
         $this->podcastImage = $yml['podcast-image'];
         $this->podcastDescription = $yml['podcast-description'];
         $this->podcastLink = $yml['podcast-link'];
